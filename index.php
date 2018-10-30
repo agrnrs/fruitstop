@@ -16,27 +16,8 @@ include 'inc/header.php';
 <div class="h2 text-center">Products</div>
 <!-- ^ should cange based on page -->
 
+<!-- type tag could be optional and only show in all products view -->
 
-<!-- 
-content
-needs a header for content.
-
-divide list into grid divs somehow
-https://getbootstrap.com/docs/4.0/layout/grid/
--->
-<!--
-<div class="d-flex p-2">
-	<ul class="list-group">
-		<li class="list-group-item-info list-group-item">Cras justo odio</li>
-		<li class="list-group-item">Cras justo odio</li>
-		<li class="list-group-item">Fruit: Watermelon</li>
-		<li class="list-group-item">Morbi leo risus</li>
-		<li class="list-group-item">Porta ac consectetur ac</li>
-		<li class="list-group-item">Vestibulum at eros</li>
-	</ul>
-</div>
--->
-<!-- fruit tag could be optional and only show in all products view -->
 <!--
 <table class="table table-sm">
   <thead>
@@ -129,22 +110,6 @@ https://getbootstrap.com/docs/4.0/layout/grid/
 </table></div>
 </div>
 </div>
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col">
-      Fruit
-    </div>
-    <div class="col-6">
-      Bacon
-    </div>
-    <div class="col">
-      Free!
-    </div>
-  </div>
-</div>
--->
-<!-- stuff to insert into col-sm -->
 
 
 <!--
