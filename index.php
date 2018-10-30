@@ -42,7 +42,56 @@ include 'inc/getproducts.php'; //get products
   </tbody>
 </table>
 -->
+<?php 
 
+$listsum = count($prodlist);
+echo "<div>".$listsum."</div>";
+$intarl = $listsum / 3;
+$intarl = (int)$intarl;
+if ($intarl < $listsum / 3) {
+	$intarl = $intarl +1;
+};
+$types1 = array();
+$prods1 = array();
+$types2 = array();
+$prods2 = array();
+$types3 = array();
+$prods3 = array();
+$outp1 = array();
+$outp2 = array();
+$outp3 = array();
+
+for ($a=0; $>$listnum; $a++){
+	if ($a < $intarl){
+		array_push($types1, $typelist[$a]);
+		array_push($prods1, $prodlist[$a]);
+		array_push($outp1, "<tr>
+      <td>".$typelist[$a]."</td>
+      <td>".$prodlist[$a]."</td>
+      <td>free!</td>
+    </tr>")
+	} else if ($a > $intarl*2) {
+		array_push($types2, $typelist[$a]);
+		array_push($prods2, $prodlist[$a]);
+	} else {
+		array_push($types3, $typelist[$a]);
+		array_push($prods3, $prodlist[$a]);
+	};
+	
+};
+
+"$"
+echo "<div>".$intarl."</div>";
+
+//for eachi narray, or add to array as this:
+echo
+"<tr>
+      <td>Fruit</td>
+      <td>Bacon</td>
+      <td>free!</td>
+    </tr>";
+
+?>
 <!--
 get list of items
 get number of items of correct type incl all
@@ -74,8 +123,8 @@ put into page
       <th scope="col">Price</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
+  <tbody><!-- inserting outp1 here -->
+<!--old example:    <tr>
       <td>Fruit</td>
       <td>Bacon</td>
       <td>free!</td>
@@ -84,7 +133,7 @@ put into page
       <td>Fruit</td>
       <td>Watermelon</td>
       <td>1</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table></div>
   <div class="col-sm-4">
