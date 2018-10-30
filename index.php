@@ -51,6 +51,7 @@ $intarl = (int)$intarl;
 if ($intarl < $listsum / 3) {
 	$intarl = $intarl +1;
 };
+
 $types1 = array();
 $prods1 = array();
 $types2 = array();
@@ -61,16 +62,17 @@ $outp1 = array();
 $outp2 = array();
 $outp3 = array();
 
-for ($a=0; $>$listnum; $a++){
-	if ($a < $intarl){
+for ($a=0; $a<$listsum; $a++){
+	if ($a <= $intarl){
 		array_push($types1, $typelist[$a]);
 		array_push($prods1, $prodlist[$a]);
-		array_push($outp1, "<tr>
+		$str = "<tr>
       <td>".$typelist[$a]."</td>
       <td>".$prodlist[$a]."</td>
       <td>free!</td>
-    </tr>")
-	} else if ($a > $intarl*2) {
+    </tr>";
+		array_push($outp1, $str);
+	} else if ($a <= $intarl*2) {
 		array_push($types2, $typelist[$a]);
 		array_push($prods2, $prodlist[$a]);
 	} else {
@@ -80,16 +82,9 @@ for ($a=0; $>$listnum; $a++){
 	
 };
 
-"$"
-echo "<div>".$intarl."</div>";
 
-//for eachi narray, or add to array as this:
-echo
-"<tr>
-      <td>Fruit</td>
-      <td>Bacon</td>
-      <td>free!</td>
-    </tr>";
+echo "<div>".count($outp1)."</div>";
+
 
 ?>
 <!--
@@ -124,6 +119,14 @@ put into page
     </tr>
   </thead>
   <tbody><!-- inserting outp1 here -->
+  <?php 
+	for ($a = 0; $a < count($outp1); $a++) {
+		echo $outp1[$a];
+	};
+  
+  ?>
+  
+  
 <!--old example:    <tr>
       <td>Fruit</td>
       <td>Bacon</td>
@@ -146,16 +149,12 @@ put into page
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Fruit</td>
-      <td>Bacon</td>
-      <td>free!</td>
-    </tr>
-    <tr>
-      <td>Fruit</td>
-      <td>Watermelon</td>
-      <td>1</td>
-    </tr>
+    <?php 
+	for ($a = 0; $a < count($outp2); $a++) {
+		echo $outp2[$a];
+	};
+  
+  ?>
   </tbody>
 </table></div>
   <div class="col-sm-4">
