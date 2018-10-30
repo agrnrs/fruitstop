@@ -10,7 +10,8 @@ include 'inc/head.php';
 
 <body>
 <?php 
-include 'inc/header.php';
+include 'inc/header.php'; // get header
+include 'inc/getproducts.php'; //get products
 ?>
 
 <div class="h2 text-center">Products</div>
