@@ -32,5 +32,7 @@ db_connect
 ajax?
 
 
+functions in a separate file in /inc/
+
 
 */

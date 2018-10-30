@@ -8,7 +8,7 @@
 
 </style>
 </head>
-
+  <!-- ^ to head.php -->
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,18 +18,21 @@
     <a class="nav-link active" href="#">All products</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Type1</a>
+    <a class="nav-link" href="#">Fruits</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Fruit</a>
+    <a class="nav-link" href="#">Vegetables</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Stuf</a>
+    <a class="nav-link" href="#">Berries</a>
   </li>
+  <!-- room for more categories, eg bacon, other -->
 </ul>
 </nav>
+  <!-- ^ to header.php -->
 
 <div class="h2 text-center">Products</div>
+
 
 
 <!-- 
@@ -42,6 +45,7 @@ https://getbootstrap.com/docs/4.0/layout/grid/
 
 <div class="d-flex p-2">
 	<ul class="list-group">
+		<li class="list-group-item-info list-group-item">Cras justo odio</li>
 		<li class="list-group-item">Cras justo odio</li>
 		<li class="list-group-item">Dapibus ac facilisis in</li>
 		<li class="list-group-item">Morbi leo risus</li>
@@ -49,10 +53,38 @@ https://getbootstrap.com/docs/4.0/layout/grid/
 		<li class="list-group-item">Vestibulum at eros</li>
 	</ul>
 </div>
+<!--
+
+sample items:
+*verify correct categorization
+*or correct later
+fruits
+	bacon
+	banana
+	apple
+	citrus
+	watermelon
+	coconut
+vegetables
+	carrot
+	lettuce
+	tomato
+	cucumber
+	onion
+	rhubarb
+	paprika
+berries
+	strawberry
+	cloudberry
+	blueberry
+	blackberry
+	
+
+-->
 
 
 
-
+  <!-- v to footer.php -->
 <div class="d-flex p-2 fixed-bottom align-items-end d-flex justify-content-end">
   <div class="col-4 alert alert-secondary text-right ">Login link</div>
 </div>
