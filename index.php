@@ -1,38 +1,20 @@
-<!DOCTYPE html>
- 
-<head>
-<meta charset="utf-8">
-<title>Fruit-stop Ab</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<?php 
+
+include 'inc/head.php';
+?>
 <style>
 
 </style>
 </head>
-  <!-- ^ to head.php -->
+
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<ul class="nav">
- <a class="navbar-brand" href="#">Fruit-stop Ab</a>
-  <li class="nav-item">
-    <a class="nav-link active" href="#">All products</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Fruits</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Vegetables</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Berries</a>
-  </li>
-  <!-- room for more categories, eg bacon, other -->
-</ul>
-</nav>
-  <!-- ^ to header.php -->
+<?php 
+include 'inc/header.php';
+?>
 
 <div class="h2 text-center">Products</div>
-
+<!-- ^ should cange based on page -->
 
 
 <!-- 
@@ -42,19 +24,130 @@ needs a header for content.
 divide list into grid divs somehow
 https://getbootstrap.com/docs/4.0/layout/grid/
 -->
-
+<!--
 <div class="d-flex p-2">
 	<ul class="list-group">
 		<li class="list-group-item-info list-group-item">Cras justo odio</li>
 		<li class="list-group-item">Cras justo odio</li>
-		<li class="list-group-item">Dapibus ac facilisis in</li>
+		<li class="list-group-item">Fruit: Watermelon</li>
 		<li class="list-group-item">Morbi leo risus</li>
 		<li class="list-group-item">Porta ac consectetur ac</li>
 		<li class="list-group-item">Vestibulum at eros</li>
 	</ul>
 </div>
+-->
+<!-- fruit tag could be optional and only show in all products view -->
 <!--
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fruit</td>
+      <td>Bacon</td>
+      <td>free!</td>
+    </tr>
+    <tr>
+      <td>Fruit</td>
+      <td>Watermelon</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+-->
 
+
+<div class="container">
+<div class="row">
+  <div class="col-sm-4"><table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fruit</td>
+      <td>Bacon</td>
+      <td>free!</td>
+    </tr>
+    <tr>
+      <td>Fruit</td>
+      <td>Watermelon</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+  <div class="col-sm-4"><table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fruit</td>
+      <td>Bacon</td>
+      <td>free!</td>
+    </tr>
+    <tr>
+      <td>Fruit</td>
+      <td>Watermelon</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+  <div class="col-sm-4"><table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Type</th>
+      <th scope="col">Product</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fruit</td>
+      <td>Bacon</td>
+      <td>free!</td>
+    </tr>
+    <tr>
+      <td>Fruit</td>
+      <td>Watermelon</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table></div>
+</div>
+</div>
+<!--
+<div class="container">
+  <div class="row">
+    <div class="col">
+      Fruit
+    </div>
+    <div class="col-6">
+      Bacon
+    </div>
+    <div class="col">
+      Free!
+    </div>
+  </div>
+</div>
+-->
+<!-- stuff to insert into col-sm -->
+
+
+<!--
 sample items:
 *verify correct categorization
 *or correct later
@@ -78,15 +171,12 @@ berries
 	cloudberry
 	blueberry
 	blackberry
-	
-
 -->
 
 
 
-  <!-- v to footer.php -->
-<div class="d-flex p-2 fixed-bottom align-items-end d-flex justify-content-end">
-  <div class="col-4 alert alert-secondary text-right ">Login link</div>
-</div>
+<?php 
 
+include 'inc/footer.php';
+?>
 </body>
