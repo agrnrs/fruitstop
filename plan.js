@@ -34,6 +34,11 @@ ajax?
 
 functions in a separate file in /inc/
 
+stuff to get from database
+-all info, incl id
+-all other info used for display
+-id used to make edit/remove request
+
 functions:
 -on this id
 	-replace data with this new data
