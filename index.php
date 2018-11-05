@@ -63,7 +63,22 @@ $prods3 = array();
 $outp1 = array();
 $outp2 = array();
 $outp3 = array();
+$idid1 = array();
+$idid2 = array();
+$idid3 = array();
+	
+	//for testing, code that adds example products to list
+	array_push($types1, 1);
+	array_push($prods1, "Squash");
+	$str = "<tr>
+      <td>".$types1[0]."</td>
+      <td>".$prods1[0]."</td>
+      <td>free!</td>
+    </tr>";
+	array_push($outp1, $str);
+	
 
+	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
 	if ($a <= $intarl){
 		array_push($types1, $typelist[$a]);
