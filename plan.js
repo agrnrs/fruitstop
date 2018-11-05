@@ -31,6 +31,7 @@ db_connect
 	-to new db
 ajax?
 
+localstorage/cookies to remember access to internal site, otherwise kicks user back to login page
 
 functions in a separate file in /inc/
 
@@ -40,6 +41,8 @@ stuff to get from database
 -id used to make edit/remove request
 
 functions:
+-get all the info
+	-display it
 -on this id
 	-replace data with this new data
 	-or remove entirely

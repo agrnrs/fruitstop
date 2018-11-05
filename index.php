@@ -55,10 +55,10 @@ if ($intarl < $listsum / 3) {
 	
 	// need add id to lists
 $types1 = array();
-$prods1 = array();
 $types2 = array();
-$prods2 = array();
 $types3 = array();
+$prods1 = array();
+$prods2 = array();
 $prods3 = array();
 $outp1 = array();
 $outp2 = array();
@@ -66,13 +66,14 @@ $outp3 = array();
 $idid1 = array();
 $idid2 = array();
 $idid3 = array();
+	// ^added id columns, to be used when identifying entries to be edited... later
 	
 	//for testing, code that adds example products to list
 	array_push($types1, 1);
 	array_push($prods1, "Squash");
 	$str = "<tr>
-      <td>".$types1[0]."</td>
-      <td>".$prods1[0]."</td>
+      <td>"."ARGH!"."</td>
+      <td>aaaaaaaaaaaaaa</td>
       <td>free!</td>
     </tr>";
 	array_push($outp1, $str);
