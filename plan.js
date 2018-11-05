@@ -34,5 +34,13 @@ ajax?
 
 functions in a separate file in /inc/
 
+functions:
+-on this id
+	-replace data with this new data
+	-or remove entirely
+-new entry
+	-add all info, id automatically
+
+if necessary, add a copy of the database or an sql command to recreate it to repo
 
 */
