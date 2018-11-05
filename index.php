@@ -68,6 +68,7 @@ $idid2 = array();
 $idid3 = array();
 	// ^added id columns, to be used when identifying entries to be edited... later
 	
+	/*
 	//for testing, code that adds example products to list
 	array_push($types1, 1);
 	array_push($prods1, "Squash");
@@ -77,7 +78,7 @@ $idid3 = array();
       <td>free!</td>
     </tr>";
 	array_push($outp1, $str);
-	
+	*/
 
 	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
