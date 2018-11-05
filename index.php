@@ -52,6 +52,8 @@ if ($intarl < $listsum / 3) {
 	$intarl = $intarl +1;
 };
 
+	
+	// need add id to lists
 $types1 = array();
 $prods1 = array();
 $types2 = array();
