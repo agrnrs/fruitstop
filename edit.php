@@ -12,7 +12,8 @@ include 'inc/head.php';
 //has save/send/something button to update fields
 //can also have a delete button here
 
-//edit page can also be used for add, if no id is set
+//edit page could also be used for add, if no id is set
+//might need a brand new id number then, which must be fetched from db, +1
 
 
 $tell = "";
@@ -33,7 +34,7 @@ if (empty($_POST['prodid']))
 	//temp for testing:
 	$id = 4;
 	include 'inc/getspecific.php';
-	
+	//later get this from product list page depending on edit button pressed
 	
 ?>
 
@@ -51,9 +52,7 @@ if (empty($_POST['prodid']))
 include 'inc/header.php'; // get header
 //include 'inc/getproducts.php'; //get products
 //do a get THIS PRODUCT function
-//do a get THIS PRODUCT function
 ?>
-
 
 
 
