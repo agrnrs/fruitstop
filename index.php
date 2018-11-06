@@ -42,17 +42,17 @@ include 'inc/getproducts.php'; //get products
   </tbody>
 </table>
 -->
+
 <?php 
 
 $listsum = count($prodlist);
-echo "<div>".$listsum."</div>";
+//echo "<div>".$listsum."</div>";
 $intarl = $listsum / 3;
 $intarl = (int)$intarl;
 if ($intarl < $listsum / 3) {
 	$intarl = $intarl +1;
 };
 
-	
 	// need add id to lists
 $types1 = array();
 $types2 = array();
@@ -82,30 +82,48 @@ $idid3 = array();
 
 	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
-	if ($a <= $intarl){
+	if ($a < $intarl){
 		array_push($types1, $typelist[$a]);
 		array_push($prods1, $prodlist[$a]);
+		array_push($idid1, $ididlist[$a]);
 		$str = "<tr>
-      <td>".$typelist[$a]."</td>
-      <td>".$prodlist[$a]."</td>
+      <td>".ucfirst($typelist[$a])."</td>
+      <td>".ucfirst($prodlist[$a])."</td>
       <td>free!</td>
+	  <td>edit&nbsp;/&nbsp;remove</td>
     </tr>";
 		array_push($outp1, $str);
-	} else if ($a <= $intarl*2) {
+	} else if ($a < $intarl*2) {
 		array_push($types2, $typelist[$a]);
 		array_push($prods2, $prodlist[$a]);
+		array_push($idid2, $ididlist[$a]);
+		$str = "<tr>
+      <td>".ucfirst($typelist[$a])."</td>
+      <td>".ucfirst($prodlist[$a])."</td>
+      <td>free!</td>
+	  <td>edit&nbsp;/&nbsp;remove</td>
+    </tr>";
+		array_push($outp2, $str);
 	} else {
 		array_push($types3, $typelist[$a]);
 		array_push($prods3, $prodlist[$a]);
+		array_push($idid3, $ididlist[$a]);
+		$str = "<tr>
+      <td>".ucfirst($typelist[$a])."</td>
+      <td>".ucfirst($prodlist[$a])."</td>
+      <td>free!</td>
+	  <td>edit&nbsp;/&nbsp;remove.</td>
+    </tr>";
+	//add edit and remove links, creating a query where id is $a
+		array_push($outp3, $str);
 	};
-	
 };
 
-
-echo "<div>".count($outp1)."</div>";
-
+//echo "<div>".count($outp1)."</div>";
 
 ?>
+
+
 <!--
 get list of items
 get number of items of correct type incl all
@@ -126,15 +144,18 @@ put things into array 1 until array 1 is intended array length (3)
 -,,- array 3 except stop short if list runs short (except, so 2)
 put into page
 -->
+
+
 <div class="container">
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-xl-4 col-md-6">
   <table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">Type</th>
       <th scope="col">Product</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody><!-- inserting outp1 here -->
@@ -142,7 +163,6 @@ put into page
 	for ($a = 0; $a < count($outp1); $a++) {
 		echo $outp1[$a];
 	};
-  
   ?>
   
   
@@ -158,13 +178,14 @@ put into page
     </tr> -->
   </tbody>
 </table></div>
-  <div class="col-sm-4">
+  <div class="col-xl-4 col-md-6">
   <table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">Type</th>
       <th scope="col">Product</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -176,31 +197,29 @@ put into page
   ?>
   </tbody>
 </table></div>
-  <div class="col-sm-4">
+  <div class="col-xl-4 col-md-6">
   <table class="table table-sm">
   <thead>
     <tr>
       <th scope="col">Type</th>
       <th scope="col">Product</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Fruit</td>
-      <td>Bacon</td>
-      <td>free!</td>
-    </tr>
-    <tr>
-      <td>Fruit</td>
-      <td>Watermelon</td>
-      <td>1</td>
-    </tr>
+    <?php 
+	for ($a = 0; $a < count($outp3); $a++) {
+		echo $outp3[$a];
+	};
+
+  ?>
   </tbody>
 </table>
 </div>
 </div>
 </div>
+
 
 
 <!--
@@ -236,3 +255,4 @@ berries
 include 'inc/footer.php';
 ?>
 </body>
+

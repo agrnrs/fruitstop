@@ -7,16 +7,21 @@ $count = $conn->query($q);
 
 $typelist = array();
 $prodlist = array();
+$ididlist = array();
 
 	//get the data
 while ($row = $count->fetch(PDO::FETCH_ASSOC)){
 		$type = $row['typename'];
 		$prod = $row['product'];
+		$idid = $row['id'];
+		//add price and mby stock
+		
 		//$course = $row['price']; //not yet added, deal w that later
 	//echo $fname . $lname . $course . "<br>";
 		//sort the data
 	array_push($typelist, $type);
 	array_push($prodlist, $prod);
+	array_push($ididlist, $idid);
 		
 };
 
