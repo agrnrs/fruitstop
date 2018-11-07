@@ -1,5 +1,5 @@
 <?php 
-//start html and page here
+include 'inc/sessioncheck.php';
 include 'inc/head.php';
 ?>
 
@@ -42,17 +42,7 @@ if (empty($_POST['id']))
 		include 'inc/removespecific.php';
 	};
 	
-	
-	//temp for testing:
-	//$id = 4;
-	//include 'inc/getspecific.php';
-	//later get this from product list page depending on edit button pressed
-	
 ?>
-
-
-
-
 <style>
 
 </style>
@@ -61,12 +51,6 @@ if (empty($_POST['id']))
 
 <body>
 
-<pre>
-<?php
-var_dump($_POST);
-// display info from post
-?>
-</pre>
 
 
 <?php 
@@ -74,37 +58,42 @@ include 'inc/header.php'; // get header
 //include 'inc/getproducts.php'; //get products
 //do a get THIS PRODUCT function
 
-echo $tell;
+// echo $tell; // wrong place for it.
 //prints "editing: id" when editing an entry
 ?>
 
+<div class="h2 text-center">Edit products</div>
 
+<div class="container col-md-8">
 <form action="edit.php" method="post">
 	<div class="form-group row">
-		<label for="id" class="col-sm-2 col-form-label">id</label>
-		<div class="col-sm-8">
+		<label for="id" class="col-sm-2 col-form-label">Editing product with id</label>
+		<div class="col-sm-2">
 			<input readonly type="text" class="form-control-sm .form-control-plaintext" id="id" name="id" value="<?php echo $id; ?>"><br>
 		</div>
 		</div>
 	<div class="form-group row">
 		<label for="product" class="col-sm-2 col-form-label">Product name</label>
-		<div class="col-sm-8">
+		<div class="col-sm-2">
 			<input type="text" class="form-control-sm" id="product" name="product" value="<?php echo $prod; ?>"><br>
 		</div>
 		</div>
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Type</label>
-		<div class="col-sm-8">
+		<div class="col-sm-2">
 			<input type="text" class="form-control-sm" id="type" name="type" value="<?php echo $type; ?>">
 		</div>
-		</div>
+		
 	</div>
 	<div class="form-group row">
 		<input type="hidden" id="do" name="do" value="update">
 		<input class="btn btn-primary" type="submit" value="Submit">
 	</div>
 </form>
-<div>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
+</div>
+
+<div class="container col-md-4">1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
+
 
 
 

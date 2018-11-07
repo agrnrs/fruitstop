@@ -15,41 +15,14 @@ include 'inc/getproducts.php'; //get products
 ?>
 
 <div class="h2 text-center">Products</div>
-<!-- ^ should change based on page -->
 
-<!-- type tag could be optional and only show in all products view -->
-
-<!--
-<table class="table table-sm">
-  <thead>
-    <tr>
-      <th scope="col">Type</th>
-      <th scope="col">Product</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Fruit</td>
-      <td>Bacon</td>
-      <td>free!</td>
-    </tr>
-    <tr>
-      <td>Fruit</td>
-      <td>Watermelon</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
--->
 
 <?php 
 
 $listsum = count($prodlist);
 $outp1 = array();
-//echo "<div>".$listsum."</div>";
 
-	
+
 	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
 

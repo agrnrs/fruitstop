@@ -30,8 +30,8 @@ if(!isset($_SESSION['login'])){
 	?>
 	<div class="d-flex p-2 fixed-bottom align-items-end d-flex justify-content-end">
 		<form action="index.php" method="post">
-			<div class="col-4 alert alert-secondary text-center">
-				<button type="button" id="do" name="do" value="logout" class="btn btn-link alert alert-secondary">Logout</button>
+			<div class="col-4 text-center">
+				<button type="submit" id="do" name="do" value="logout" class="btn btn-link alert alert-secondary">Logout</button>
 				<!-- <input type="hidden" id="do" name="do" value="logout">  removed in case the button alone works -->
 			</div>
 		</form>

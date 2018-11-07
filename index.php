@@ -1,6 +1,12 @@
 <?php 
-
+session_start();
 include 'inc/head.php';
+if (!isset($_SESSION['login'])) {
+	$status ="Not logged in AGAIN";
+	} else if ($_SESSION['login'] == true) {
+	$status = "Logged in";
+	}; // this could be done in a separate inc file instead of here AND in sessioncheck
+
 ?>
 <style>
 
@@ -8,20 +14,19 @@ include 'inc/head.php';
 </head>
 
 <body>
-<pre>
-<?php
-var_dump($_POST);
-// display info from post
-?>
-</pre>
 
 
 <?php 
 include 'inc/header.php'; // get header
 
-$output = "";
+?>
 
-if(isset($_POST) && !empty($_POST)){
+<div class="h2 text-center">Fruit-stop Ab's internal product management system</div>
+<div align="center">If not logged in, please log in or go away</div>
+<?php
+if (empty($_POST['do'])){
+	//echo ("Nothing in post.");
+} else if ($_POST['do'] == 'login'){
 	$sql = "SELECT * FROM fs_users WHERE username=:user_name AND password=:user_password LIMIT 1";
 	$row = [
 	':user_name' => $_POST['username'],
@@ -32,25 +37,23 @@ if(isset($_POST) && !empty($_POST)){
 	$res->execute($row);
 	if($res->fetchColumn() < 1)
 	{
-		//$output="Wrong login";
+		//echo("Wrong login");
 		//header('location: index.php');
 	} else {
-		//$output = "Användare ok";
 		$_SESSION['login'] = true;
 		header('location: products.php');
 		};
+} else if ($_POST['do'] == 'logout'){
+	unset($_SESSION['login']);
+	session_destroy(); 
+	//echo("LOGGING YOU OUT RIGHT NOW.");
+	//header('location: index.php');
 };
 
 
 
 //logout functionality
-if (empty($_POST['do'])){
-	echo ("Nothing in post.");
-} else if ($_POST['do'] == 'logout'){
-	unset($_SESSION['login']);
-	session_destroy(); 
-	header('location: index.php');
-};
+
 
 
 include 'inc/footer.php';

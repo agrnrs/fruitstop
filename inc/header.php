@@ -2,12 +2,26 @@
 <ul class="nav">
  <a class="navbar-brand" href="index.php">Fruit-stop Ab</a>
   <li class="nav-item">
-    <a class="nav-link active" href="index.php">All products</a>
+    <a class="nav-link active" href="products.php">All products</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="add.php">Add product</a>
   </li>
   <!-- room for more categories, eg cocoa, bacon, other -->
 </ul>
+<ul class="nav navbar-nav navbar-right">
+      <li><?php if($status){echo $status;}; ?></li>
+    </ul>
 </nav>
   <!-- ^ to header.php -->
+  
+  
+  <!--
+  
+  <ul class="nav navbar-nav navbar-right">
+      <li><a href="#about">Right</a></li>
+      <li><a href="#contact">Right</a></li>
+    </ul>
+  
+  
+  -->
