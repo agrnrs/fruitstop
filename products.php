@@ -11,7 +11,17 @@ include 'inc/head.php';
 <body>
 <?php 
 include 'inc/header.php'; // get header
-include 'inc/getproducts.php'; //get products
+if (!empty($_GET["sort"])){
+	if ($_GET["sort"] == 1) {
+		include 'inc/gettypes.php';
+	} else ($_GET["sort"] == 2) {
+		include 'inc/getproducts.php' //this line doesn't want to end with a semicolon
+	};
+} else {
+	// if nothing else
+	include 'inc/getproducts.php';
+//get products sorted by product name
+};
 ?>
 
 <div class="h2 text-center">Products</div>

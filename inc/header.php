@@ -2,7 +2,10 @@
 <ul class="nav">
  <a class="navbar-brand" href="index.php">Fruit-stop Ab</a>
   <li class="nav-item">
-    <a class="nav-link active" href="products.php">All products</a>
+    <a class="nav-link active" href="products.php?sort=2">Sort by product</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="products.php?sort=1">Sort by type</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="add.php">Add product</a>
