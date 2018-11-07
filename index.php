@@ -86,12 +86,22 @@ for ($a=0; $a<$listsum; $a++){
 		array_push($types1, $typelist[$a]);
 		array_push($prods1, $prodlist[$a]);
 		array_push($idid1, $ididlist[$a]);
-		$str = "<tr>
-      <td>".ucfirst($typelist[$a])."</td>
-      <td>".ucfirst($prodlist[$a])."</td>
+		$str = '<tr>
+      <td>'.ucfirst($typelist[$a]).'</td>
+      <td>'.ucfirst($prodlist[$a]).'</td>
       <td>free!</td>
-	  <td>edit&nbsp;/&nbsp;remove</td>
-    </tr>";
+	  <td>
+		<form action="edit.php" method="post">
+			<button type="submit" class="btn btn-link" value="' . $ididlist[$a] . '">edit</button>
+			<input type="hidden" id="edit" value="edit">
+		</form>
+		&nbsp;/&nbsp;
+		<form action="edit.php" method="post">
+			<button type="submit" class="btn btn-link" value="' . $ididlist[$a] . '">remove</button>
+			<input type="hidden" id="remove" value="remove">
+		</form>
+		</td>
+		</tr>';
 		array_push($outp1, $str);
 	} else if ($a < $intarl*2) {
 		array_push($types2, $typelist[$a]);
