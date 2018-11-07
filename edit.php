@@ -40,6 +40,7 @@ if (empty($_POST['id']))
 		$id = $_POST['id'];
 		$tell = "Removing: " . $id;
 		include 'inc/removespecific.php';
+		header("Location: products.php");
 	};
 	
 ?>

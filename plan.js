@@ -1,5 +1,15 @@
 /*
 
+--left to do--
+entries:
+	price/kg
+	stock (kg)
+	added to display, add, edit, mby sort systems
+search function
+making the thing not look terribad
+
+/////////////////////////
+
 tables:
 
 types table:
@@ -11,7 +21,6 @@ id -int4 ai !null
 product -varchar/text
 type (via types table) -int2
 price -numeric w 2dec
-
 
 //////////////////////////
 
