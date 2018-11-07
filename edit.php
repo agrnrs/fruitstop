@@ -22,13 +22,21 @@ if (empty($_POST['id']))
 	{
 		$tell = "Fel.";
 		if (empty($_POST['id'])){$tell = "no id";};
-	} else if ($_POST['do'] = "edit") {
+	} else if ($_POST['do'] == "edit") {
 		$id = $_POST['id'];
 		$tell = "Editing: " . $id;
 		include 'inc/getspecific.php';
 		//this does sql stuf, gets data for id
 		// gets $type, $prod, and $idid currently
-	} else if ($_POST['do'] = "remove") {
+	} else if ($_POST['do'] == "update") {
+		$id = $_POST['id'];
+		$prod = $_POST['product'];
+		$type = $_POST['type'];
+		$tell = "Updating: " . $id;
+		include 'inc/updatespecific.php';
+		//this does sql stuf, gets data for id
+		// gets $type, $prod, and $idid currently
+	} else if ($_POST['do'] == "remove") {
 		$id = $_POST['id'];
 		$tell = "Removing: " . $id;
 		include 'inc/removespecific.php';
@@ -55,7 +63,7 @@ if (empty($_POST['id']))
 
 <pre>
 <?php
-//var_dump($_POST);
+var_dump($_POST);
 // display info from post
 ?>
 </pre>
@@ -71,26 +79,29 @@ echo $tell;
 ?>
 
 
-
-<form>
+<form action="edit.php" method="post">
 	<div class="form-group row">
 		<label for="id" class="col-sm-2 col-form-label">id</label>
 		<div class="col-sm-8">
-			<input readonly type="text" class="form-control-sm .form-control-plaintext" id="id" value="<?php echo $id; ?>"><br>
+			<input readonly type="text" class="form-control-sm .form-control-plaintext" id="id" name="id" value="<?php echo $id; ?>"><br>
 		</div>
 		</div>
 	<div class="form-group row">
 		<label for="product" class="col-sm-2 col-form-label">Product name</label>
 		<div class="col-sm-8">
-			<input type="text" class="form-control-sm" id="product" value="<?php echo $prod; ?>"><br>
+			<input type="text" class="form-control-sm" id="product" name="product" value="<?php echo $prod; ?>"><br>
 		</div>
 		</div>
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Type</label>
 		<div class="col-sm-8">
-			<input type="text" class="form-control-sm" id="type" value="<?php echo $type; ?>">
+			<input type="text" class="form-control-sm" id="type" name="type" value="<?php echo $type; ?>">
 		</div>
 		</div>
+	</div>
+	<div class="form-group row">
+		<input type="hidden" id="do" name="do" value="update">
+		<input class="btn btn-primary" type="submit" value="Submit">
 	</div>
 </form>
 <div>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
