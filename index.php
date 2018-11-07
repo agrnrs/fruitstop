@@ -79,7 +79,7 @@ $idid3 = array();
     </tr>";
 	array_push($outp1, $str);
 	*/
-
+print_r($ididlist);
 	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
 	if ($a < $intarl){
