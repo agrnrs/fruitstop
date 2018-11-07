@@ -1,5 +1,5 @@
 <?php 
-
+include 'inc/sessioncheck.php';
 include 'inc/head.php';
 ?>
 <style>

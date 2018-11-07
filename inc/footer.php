@@ -3,15 +3,20 @@
 <?php
 
 if(!isset($_SESSION['login'])){
-//add login button, link to index which is (will be) also login
-// add full login form, username, passw, connect to button
 ?>
-	<div class="d-flex fixed-bottom align-items-end justify-content-end">
-		<form action="/index.php" method="post">
+	<div class="d-flex align-items-center justify-content-center p-3">
+		<form action="index.php" method="post">
 			<div class="form-row">
-				<div class="col-md-12  text-center">
-					<button type="button" id="do" name="do" value="login" class="btn btn-link alert alert-secondary">Login</button>
-					<!-- <input type="hidden" id="do" name="do" value="login">  removed in case the button alone works -->
+				<!-- put fields here -->
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Username and password</span>
+					</div>
+					<input type="text" id="username" name="username" class="form-control">
+					<input type="password" id="password" name="password" class="form-control">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="submit" id="do" name="do" value="login">Login</button>
+					</div>
 				</div>
 			</div>
 		</form>
@@ -21,16 +26,17 @@ if(!isset($_SESSION['login'])){
 } else {
 	
 	//have logout button that does this: session_destroy(); 
-	//the form can contain a "do" that says logoutm, and sessionhead can contain a kickout function
+	//the form can contain a "do" that says logout, and sessionhead can contain a kickout function
 	?>
 	<div class="d-flex p-2 fixed-bottom align-items-end d-flex justify-content-end">
-		<form action="/index.php" method="post">
+		<form action="index.php" method="post">
 			<div class="col-4 alert alert-secondary text-center">
 				<button type="button" id="do" name="do" value="logout" class="btn btn-link alert alert-secondary">Logout</button>
 				<!-- <input type="hidden" id="do" name="do" value="logout">  removed in case the button alone works -->
 			</div>
 		</form>
 	</div>
+
 <?php
 };
 
