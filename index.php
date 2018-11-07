@@ -66,7 +66,7 @@ $outp3 = array();
 $idid1 = array();
 $idid2 = array();
 $idid3 = array();
-	// ^added id columns, to be used when identifying entries to be edited... later
+	// ^added id columns, to be used when identifying entries to be edited
 	
 	/*
 	//for testing, code that adds example products to list
@@ -88,17 +88,17 @@ for ($a=0; $a<$listsum; $a++){
 		array_push($idid1, $ididlist[$a]);
 		$str = '<tr>
       <td>'.ucfirst($typelist[$a]).'</td>
-      <td>'.ucfirst($prodlist[$a]).'</td>
+      <td>'.ucfirst($prodlist[$a])." id: ".$ididlist[$a].'</td>
       <td>free!</td>
 	  <td>
 		<form action="edit.php" method="post">
-			<button type="submit" class="btn btn-link" value="' . $ididlist[$a] . '">edit</button>
-			<input type="hidden" id="edit" value="edit">
+			<button type="submit" class="btn btn-link" id="do" name="do" value="edit">edit</button>
+			<input type="hidden" id="id" name="id" value="' . $ididlist[$a] . '">
 		</form>
 		&nbsp;/&nbsp;
 		<form action="edit.php" method="post">
-			<button type="submit" class="btn btn-link" value="' . $ididlist[$a] . '">remove</button>
-			<input type="hidden" id="remove" value="remove">
+			<button type="submit" class="btn btn-link" id="do" name="do" value="remove">remove</button>
+			<input type="hidden" id="id" name="id" value="' . $ididlist[$a] . '">
 		</form>
 		</td>
 		</tr>';

@@ -18,22 +18,26 @@ include 'inc/head.php';
 
 $tell = "";
 
-if (empty($_POST['prodid']))
+if (empty($_POST['id']))
 	{
 		$tell = "Fel.";
-	}
-	else
-	{
+		if (empty($_POST['id'])){$tell = "no id";};
+	} else if ($_POST['do'] = "edit") {
 		$id = $_POST['id'];
-		include 'getspecific';
+		$tell = "Editing: " . $id;
+		include 'inc/getspecific.php';
 		//this does sql stuf, gets data for id
 		// gets $type, $prod, and $idid currently
-	}
+	} else if ($_POST['do'] = "remove") {
+		$id = $_POST['id'];
+		$tell = "Removing: " . $id;
+		include 'inc/removespecific.php';
+	};
 	
 	
 	//temp for testing:
-	$id = 4;
-	include 'inc/getspecific.php';
+	//$id = 4;
+	//include 'inc/getspecific.php';
 	//later get this from product list page depending on edit button pressed
 	
 ?>
@@ -48,10 +52,22 @@ if (empty($_POST['prodid']))
 
 
 <body>
+
+<pre>
+<?php
+//var_dump($_POST);
+// display info from post
+?>
+</pre>
+
+
 <?php 
 include 'inc/header.php'; // get header
 //include 'inc/getproducts.php'; //get products
 //do a get THIS PRODUCT function
+
+echo $tell;
+//prints "editing: id" when editing an entry
 ?>
 
 
