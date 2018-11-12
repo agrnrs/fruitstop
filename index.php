@@ -2,7 +2,7 @@
 session_start();
 include 'inc/head.php';
 if (!isset($_SESSION['login'])) {
-	$status ="Not logged in AGAIN";
+	$status ="Not logged in";
 	} else if ($_SESSION['login'] == true) {
 	$status = "Logged in";
 	}; // this could be done in a separate inc file instead of here AND in sessioncheck

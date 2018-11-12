@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-xs navbar-light bg-light">
 <ul class="nav">
  <a class="navbar-brand" href="index.php">Fruit-stop Ab</a>
   <li class="nav-item">
@@ -12,7 +12,7 @@
   </li>
   <!-- room for more categories, eg cocoa, bacon, other -->
 </ul>
-<ul class="nav navbar-nav navbar-right">
+<ul class="nav">
       <li><?php if($status){echo $status;}; ?></li>
     </ul>
 </nav>
