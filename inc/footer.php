@@ -28,7 +28,7 @@ if(!isset($_SESSION['login'])){
 	//have logout button that does this: session_destroy(); 
 	//the form can contain a "do" that says logout, and sessionhead can contain a kickout function
 	?>
-	<div class="d-flex p-2 fixed-bottom align-items-end d-flex justify-content-end">
+	<div class="d-flex p-2 align-items-end d-flex justify-content-end">
 		<form action="index.php" method="post">
 			<div class="col-4 text-center">
 				<button type="submit" id="do" name="do" value="logout" class="btn btn-link alert alert-secondary">Logout</button>

@@ -25,7 +25,9 @@ if (!empty($_GET["sort"])){
 ?>
 
 <div class="h2 text-center">Products</div>
-
+<div class="d-flex justify-content-center"><?php
+	//good place for removal or other notification
+?></div>
 
 <?php 
 

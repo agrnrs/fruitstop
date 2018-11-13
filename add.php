@@ -22,56 +22,40 @@ include 'inc/header.php'; // get header
 //prints "editing: id" when editing an entry
 ?>
 
-
 <div class="h2 text-center">Add product</div>
 
 
-
+<div class="d-flex justify-content-center">
 <?php
 if(empty($_POST['do'])){
 	//do nothing
 } else if ($_POST['do'] == "add") {
 	include 'inc/addproduct.php';
-	echo "added ".$_POST['product'];
-	//then get the corresponding entry
-	//then enter edit mode
+	echo $_POST['product']." was added to the database as a type ".$_POST['type']." product";
 };
 ?>
+</div>
 
 <div class="container col-md-8">
-<form action="add.php" method="post">
+<form class="needs-validation" action="add.php" method="post" novalidate>
 	<div class="form-group row">
 		<label for="product" class="col-sm-2 col-form-label">Product name</label>
-		<div class="col-sm-">
-			<input type="text" class="form-control-sm" id="product" name="product" value=""><br>
+		<div class="col-sm-5">
+			<input type="text" class="form-control-sm" id="product" name="product" value="" required><br>
+		</div>
+		<div class="invalid-feedback">
+			Please enter a product name
 		</div>
 	</div>
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Type</label>
 		<div class="col-sm-5">
-			<input type="text" class="form-control-sm" id="type" name="type" value="">
+			<input type="number" min="1" max="3" class="form-control-sm" id="type" aria-describedby="inputGroupPrepend" name="type" value="" required>
 		</div>
-		<div class="form-check col-sm2">
-			<label class="form-check-label" for="type">
-				Invalid type
-			</label>
-			<div class="invalid-feedback">
-				Field is empty
-			</div>
+		<div class="invalid-feedback">
+			Please enter a valid product type
 		</div>
 	</div>
-	
-	<div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-      <label class="form-check-label" for="invalidType">
-        Invalid type
-      </label>
-      <div class="invalid-feedback">
-        Field is empty
-      </div>
-    </div>
-  </div>
 	
 	<div class="form-group row">
 		<input type="hidden" id="do" name="do" value="add">

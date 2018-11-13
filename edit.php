@@ -39,6 +39,7 @@ if (empty($_POST['id']))
 	} else if ($_POST['do'] == "remove") {
 		$id = $_POST['id'];
 		$tell = "Removing: " . $id;
+		
 		include 'inc/removespecific.php';
 		header("Location: products.php");
 	};
@@ -64,15 +65,11 @@ include 'inc/header.php'; // get header
 ?>
 
 <div class="h2 text-center">Edit products</div>
+<div class="d-flex justify-content-center">Editing product with id <?php echo $id; ?></div>
+
 
 <div class="container col-md-8">
 <form action="edit.php" method="post">
-	<div class="form-group row">
-		<label for="id" class="col-sm-2 col-form-label">Editing product with id</label>
-		<div class="col-sm-2">
-			<input readonly type="text" class="form-control-sm .form-control-plaintext" id="id" name="id" value="<?php echo $id; ?>"><br>
-		</div>
-		</div>
 	<div class="form-group row">
 		<label for="product" class="col-sm-2 col-form-label">Product name</label>
 		<div class="col-sm-2">
