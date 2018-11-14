@@ -29,13 +29,18 @@ if(!isset($_SESSION['login'])){
 	//the form can contain a "do" that says logout, and sessionhead can contain a kickout function
 	?>
 	<div class="d-flex p-2 align-items-end d-flex justify-content-end">
-		<form action="index.php" method="post">
-			<div class="col-4 text-center">
+		<div class="col-4 text-center">
+			<form action="index.php" method="post">
 				<button type="submit" id="do" name="do" value="logout" class="btn btn-link alert alert-secondary">Logout</button>
 				<!-- <input type="hidden" id="do" name="do" value="logout">  removed in case the button alone works -->
-			</div>
-		</form>
+			</form>
+		</div>
+		
+		
 	</div>
+	
+	
+
 
 <?php
 };
@@ -43,3 +48,6 @@ if(!isset($_SESSION['login'])){
 //next: add functionality to login/out button
 
 ?>
+
+	<div class="p-1 mb-2 bg-light text-secondary text-center font-weight-light">Contact information web tech support issues bugs stupid function problems debug regex !logic</div>
+	
