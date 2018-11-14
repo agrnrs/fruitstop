@@ -14,8 +14,14 @@ include 'inc/header.php'; // get header
 if (!empty($_GET["sort"])){
 	if ($_GET["sort"] == 1) {
 		include 'inc/gettypes.php';
-	} else ($_GET["sort"] == 2) {
-		include 'inc/getproducts.php' //this line doesn't want to end with a semicolon
+	} else if ($_GET["sort"] == 2) {
+		include 'inc/getproducts.php';
+	} else if ($_GET["sort"] == 3) {
+		include 'inc/getstock.php';
+	} else if ($_GET["sort"] == 4) {
+		include 'inc/getprice.php';
+	} else {
+		include 'inc/getproducts.php';
 	};
 } else {
 	// if nothing else
@@ -42,7 +48,8 @@ for ($a=0; $a<$listsum; $a++){
 		<tr>
       <td>'.ucfirst($typelist[$a]).'</td>
       <td>'.ucfirst($prodlist[$a]).'</td>
-      <td>free!</td>
+      <td>'.ucfirst($kgstlist[$a]).'</td>
+      <td>'.ucfirst($priclist[$a]).'</td>
 	  <td>
 	  <div class="form-check form-check-inline">
 		<form action="edit.php" method="post" style="float: left;">
@@ -73,7 +80,8 @@ for ($a=0; $a<$listsum; $a++){
     <tr>
       <th scope="col">Type</th>
       <th scope="col">Product</th>
-      <th scope="col">Price</th>
+      <th scope="col">Stock kg</th>
+      <th scope="col">Price/kg</th>
       <th scope="col">Action</th>
     </tr>
   </thead>

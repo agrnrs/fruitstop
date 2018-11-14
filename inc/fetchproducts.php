@@ -1,14 +1,4 @@
-<?php
-
-$q = "SELECT * FROM fs_products INNER JOIN fs_types ON fs_products.type = fs_types.type_id ORDER BY type ASC";
-	// ... WHERE //for specifying type in categorization function which doesn't currently matter
-$count = $conn->query($q);
-
-include 'fetchproducts.php';
-
-
-/*
-//no longer used separate, included via fetchproducts.php
+<?php 
 $typelist = array();
 $prodlist = array();
 $kgstlist = array();
@@ -30,9 +20,12 @@ while ($row = $count->fetch(PDO::FETCH_ASSOC)){
 	array_push($typelist, $type);
 	array_push($prodlist, $prod);
 	array_push($kgstlist, $kgst);
-	array_push($priclist, $pric);
+	if ($pric <= 0) {
+		array_push($priclist, "free!");
+		} else {
+			array_push($priclist, $pric);
+		};
 	array_push($ididlist, $idid);
 		
 };
-*/
 ?>

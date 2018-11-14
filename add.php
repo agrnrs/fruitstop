@@ -25,13 +25,13 @@ include 'inc/header.php'; // get header
 <div class="h2 text-center">Add product</div>
 
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" id="feedbackmessage">
 <?php
 if(empty($_POST['do'])){
 	//do nothing
 } else if ($_POST['do'] == "add") {
 	include 'inc/addproduct.php';
-	echo $_POST['product']." was added to the database as a type ".$_POST['type']." product";
+	echo $_POST['product'] . " was added to the database as a type " . $_POST['type'] . " product, " . $_POST['kgstock'] . "kg in stock, and with a price of " . $_POST['price'] . ".";
 };
 ?>
 </div>
@@ -54,6 +54,24 @@ if(empty($_POST['do'])){
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product type
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="type" class="col-sm-2 col-form-label">Stock kg</label>
+		<div class="col-sm-5">
+			<input type="number" min="0" class="form-control-sm" id="kgstock" aria-describedby="inputGroupPrepend" name="kgstock" value="" required>
+		</div>
+		<div class="invalid-feedback">
+			Please enter a valid stock amount
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
+		<div class="col-sm-5">
+			<input type="number" min="0" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" required>
+		</div>
+		<div class="invalid-feedback">
+			Please enter a valid product price
 		</div>
 	</div>
 	
@@ -86,6 +104,7 @@ include 'inc/footer.php';
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
+		  document.getElementById("feedbackmessage").innerHTML = "All fields require valid inputs";
         }
         form.classList.add('was-validated');
       }, false);

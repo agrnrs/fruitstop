@@ -8,6 +8,12 @@
     <a class="nav-link active" href="products.php?sort=1">Sort by type</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link active" href="products.php?sort=3">Sort by stock</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="products.php?sort=4">Sort by price</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="add.php">Add product</a>
   </li>
   <!-- room for more categories, eg cocoa, bacon, other -->
