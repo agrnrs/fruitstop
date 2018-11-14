@@ -50,6 +50,7 @@ if (empty($_POST['id'])){
 <style>
 
 </style>
+<title>Fruit-stop Ab -- Edit product</title>
 </head>
 
 

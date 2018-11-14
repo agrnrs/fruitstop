@@ -5,11 +5,11 @@ if (!isset($_SESSION['login'])) {
 	$status ="Not logged in";
 	} else if ($_SESSION['login'] == true) {
 	$status = "Logged in";
+	header("Location: products.php");
 	}; // this could be done in a separate inc file instead of here AND in sessioncheck
 
 ?>
 <style>
-
 </style>
 </head>
 

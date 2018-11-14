@@ -6,8 +6,8 @@ include 'inc/head.php';
 <style>
 
 </style>
+<title>Fruit-stop Ab -- Add product</title>
 </head>
-
 
 <body>
 
@@ -50,7 +50,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Type</label>
 		<div class="col-sm-5">
-			<input type="number" min="1" max="3" class="form-control-sm" id="type" aria-describedby="inputGroupPrepend" name="type" value="" required>
+			<input type="number" min="1" max="3" class="form-control-sm" id="type" aria-describedby="inputGroupPrepend" name="type" value="" placeholder="1-3" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product type
@@ -59,7 +59,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Stock kg</label>
 		<div class="col-sm-5">
-			<input type="number" min="0" class="form-control-sm" id="kgstock" aria-describedby="inputGroupPrepend" name="kgstock" value="" required>
+			<input type="number" min="0" class="form-control-sm" id="kgstock" aria-describedby="inputGroupPrepend" name="kgstock" value="" placeholder="0" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid stock amount
@@ -68,7 +68,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="number" min="0" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" required>
+			<input type="number" min="0" step="any" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -91,13 +91,34 @@ include 'inc/footer.php';
 ?>
 </body>
 
+<script type="text/javascript">
+//plan: make this function convert point to comma upon leaving field
+//might work
+
+	function convertComma() {
+		alert("function time!);
+		//function triggers ok
+		var pricestr = document.getElementById("price").innerHTML;
+		if (pricestr.includes(".")){
+			//alert("includes point!"); // this triggers ok
+			pricestr.replace(".", ",");
+			//alert("yo: " + pricestr); //this... doesn't!?
+			document.getElementById("price").innerHTML = pricestr;
+			//alert("includes point!");
+		};
+	};
+	
+</script>
+
 <script>
 // stolen directly from bootstrap's own example
 (function() {
   'use strict';
   window.addEventListener('load', function() {
+	
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
+	
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {

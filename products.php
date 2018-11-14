@@ -5,6 +5,8 @@ include 'inc/head.php';
 <style>
 
 </style>
+<title>Fruit-stop Ab -- Products</title>
+
 </head>
 
 
@@ -39,7 +41,6 @@ if (!empty($_GET["sort"])){
 
 $listsum = count($prodlist);
 $outp1 = array();
-
 
 	//actual code, which works WHEN CONNECTED TO DB
 for ($a=0; $a<$listsum; $a++){
