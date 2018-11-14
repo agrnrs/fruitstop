@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2018 at 11:28 AM
+-- Generation Time: Nov 14, 2018 at 12:46 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -39,7 +39,8 @@ CREATE TABLE `fs_users` (
 --
 
 INSERT INTO `fs_users` (`id`, `username`, `password`) VALUES
-(1, 'ad', '444bcb3a3fcf8389296c49467f27e1d6');
+(1, 'ad', '444bcb3a3fcf8389296c49467f27e1d6'),
+(2, 'paul', '72f60414b5f6851429c9486e91fbf241');
 
 --
 -- Indexes for dumped tables
@@ -59,7 +60,7 @@ ALTER TABLE `fs_users`
 -- AUTO_INCREMENT for table `fs_users`
 --
 ALTER TABLE `fs_users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

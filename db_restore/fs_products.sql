@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2018 at 09:14 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Nov 14, 2018 at 12:46 PM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,7 +41,7 @@ CREATE TABLE `fs_products` (
 --
 
 INSERT INTO `fs_products` (`id`, `product`, `type`, `price`, `kgstock`) VALUES
-(1, 'banana', 1, '0.800', 240),
+(1, 'banana', 1, '0.752', 220),
 (2, 'Watermelon', 1, '2.220', 80),
 (3, 'Strawberry', 3, '2.400', 60),
 (4, 'carrot', 2, '0.500', 400),
@@ -50,17 +50,15 @@ INSERT INTO `fs_products` (`id`, `product`, `type`, `price`, `kgstock`) VALUES
 (7, 'Tomato', 2, '0.750', 380),
 (9, 'Lime', 1, '0.999', 120),
 (10, 'Lemon', 1, '0.600', 220),
-(11, 'paprika', 2, '0.999', 130),
+(11, 'paprika', 2, '0.850', 130),
 (12, 'grape', 1, '0.950', 40),
 (13, 'brussels sprout', 2, '0.000', 20),
-(14, 'Apple', 1, '0.650', 410),
+(14, 'Apple', 1, '0.605', 320),
 (15, 'Cloudberry', 3, '2.850', 45),
-(16, 'sdf', 4, '0.999', 4),
-(17, 'Blank', 2, '0.999', 2),
-(19, 'Ananananas', 1, '0.555', 2),
-(20, 'Nothing', 2, '0.000', 2),
-(21, 'Monkey Brains', 1, '0.999', 2),
-(23, 'One', 1, '0.999', 1);
+(32, 'Lingonberry', 3, '3.000', 450),
+(48, 'Sugarcane', 2, '3.900', 60),
+(49, 'Sugarbeet', 2, '3.000', 200),
+(74, 'bacon', 2, '3.700', 45);
 
 --
 -- Indexes for dumped tables
@@ -80,7 +78,7 @@ ALTER TABLE `fs_products`
 -- AUTO_INCREMENT for table `fs_products`
 --
 ALTER TABLE `fs_products`
-  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
