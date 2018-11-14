@@ -25,19 +25,17 @@ include 'inc/header.php'; // get header
 <div class="h2 text-center">Add product</div>
 
 
-<div class="d-flex justify-content-center" id="feedbackmessage">
-<?php
+<div class="d-flex justify-content-center" id="feedbackmessage"><?php
 if(empty($_POST['do'])){
 	//do nothing
 } else if ($_POST['do'] == "add") {
 	include 'inc/addproduct.php';
 	echo $_POST['product'] . " was added to the database as a type " . $_POST['type'] . " product, " . $_POST['kgstock'] . "kg in stock, and with a price of " . $_POST['price'] . ".";
 };
-?>
-</div>
+?></div>
 
 <div class="container col-md-8">
-<form class="needs-validation" action="add.php" method="post" novalidate>
+<form class="needs-validation" action="add.php" method="post" id="addform" novalidate>
 	<div class="form-group row">
 		<label for="product" class="col-sm-2 col-form-label">Product name</label>
 		<div class="col-sm-5">
@@ -68,7 +66,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="number" min="0" step="any" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" required>
+			<input type="number" min="0" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -91,20 +89,24 @@ include 'inc/footer.php';
 ?>
 </body>
 
-<script type="text/javascript">
+<script>
 //plan: make this function convert point to comma upon leaving field
 //might work
 
 	function convertComma() {
-		alert("function time!);
+		//alert("function time!");
 		//function triggers ok
-		var pricestr = document.getElementById("price").innerHTML;
+		var pricestr = document.getElementById('price');
+		console.log(pricestr);
+		alert("pricestr: " + pricestr);
 		if (pricestr.includes(".")){
-			//alert("includes point!"); // this triggers ok
+			alert("includes point!");
 			pricestr.replace(".", ",");
-			//alert("yo: " + pricestr); //this... doesn't!?
-			document.getElementById("price").innerHTML = pricestr;
-			//alert("includes point!");
+			alert("yo: " + pricestr);
+			document.getElementById("price").value = pricestr;
+			alert("includes point!");
+			document.getElementById("feedbackmessage").value = "Use comma for decimal input";
+			return pricestr;
 		};
 	};
 	
@@ -132,4 +134,6 @@ include 'inc/footer.php';
     });
   }, false);
 })();
+
 </script>
+

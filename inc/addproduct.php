@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST)&& !empty($_POST)){
 	$sql = "INSERT INTO fs_products (product, type, kgstock, price)
 		VALUES(:product, :type, :kgstock, :price)";
@@ -14,11 +13,5 @@ if(isset($_POST)&& !empty($_POST)){
 	);
 	//if($res){$output = "Update received";} else {$output = "Error.";}
 };
-
-
-/*
-// old query
-
-*/
 ?>
 
