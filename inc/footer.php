@@ -49,5 +49,5 @@ if(!isset($_SESSION['login'])){
 
 ?>
 
-	<div class="p-1 mb-2 bg-light text-secondary text-center font-weight-light">Contact information web tech support issues bugs stupid function problems debug regex !logic</div>
-	
+	<div class="p-1 mb-2 bg-light text-secondary text-center font-weight-light ">Contact information web tech support issues bugs stupid function problems debug regex !logic</div>
+

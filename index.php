@@ -5,6 +5,7 @@ if (!isset($_SESSION['login'])) {
 	$status ="Not logged in";
 	} else if ($_SESSION['login'] == true) {
 	$status = "Logged in";
+	unset ($_SESSION['loginfail']);
 	header("Location: products.php");
 	}; // this could be done in a separate inc file instead of here AND in sessioncheck
 
@@ -22,7 +23,15 @@ include 'inc/header.php'; // get header
 ?>
 
 <div class="h2 text-center">Fruit-stop Ab's internal product management system</div>
-<div align="center">If not logged in, please log in or go away</div>
+<div align="center" id="loginmsg"><?php
+	if (empty($_POST['do'])) {
+		echo "Please log in or go away";
+	} else if (!isset($_SESSION['loginfail'])){
+		echo "Please log in or go away";
+	} else if ($_SESSION['loginfail'] == true) {
+		echo "Wrong login";
+	};
+	?></div>
 <?php
 if (empty($_POST['do'])){
 	//echo ("Nothing in post.");
@@ -37,6 +46,7 @@ if (empty($_POST['do'])){
 	$res->execute($row);
 	if($res->fetchColumn() < 1)
 	{
+		$_SESSION['loginfail'] = true;
 		//echo("Wrong login");
 		//header('location: index.php');
 	} else {
