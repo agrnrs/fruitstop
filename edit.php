@@ -117,7 +117,7 @@ include 'inc/header.php'; // get header
 	</div>
 </form>
 
-<div>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
+<div>Types:<br>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
 </div>
 
 
@@ -134,23 +134,33 @@ include 'inc/footer.php';
 		//function triggers ok
 		var pricestr = document.getElementById('price').value;
 		//console.log(pricestr);
-		pricestr = pricestr.replace(/[^0-9.,]/g, '');
+		pricestr = pricestr.replace(/[^0-9\.,]/g, '');
 		//alert("pricestr: " + pricestr);
-		if (/\d+[\,\.]{1}\d+/.test(pricestr)){
-			if (pricestr.includes(".")){
-				pricestr.replace(",", ".");
+		if (/\d+[,\.]{1}\d+/.test(pricestr)){
+			
+			//used to replace symbols, works... ish
+			if (pricestr.includes(",")){
+				pricestr = pricestr.replace(",", ".");
 			};
+			
+			
 			pricestr = parseFloat(pricestr);
+			//alert(pricestr);
 			document.getElementById("price").value = pricestr;
 			return pricestr;
+		} else if (!pricestr) {
+			return "";
 		} else {
 			//alert("invalid price");
 			document.getElementById("feedbackmessage").value = "Input numbers and comma only in price field";
-				document.getElementById("price").value = "";
+				document.getElementById("price").value = "0";
 			event.preventDefault();
 			event.stopPropagation();
 		};
+		if (document.getElementById("price").value == ""){document.getElementById("price").value = "0";};
 	};
+	
+
 	
 </script>
 
@@ -159,8 +169,12 @@ include 'inc/footer.php';
 (function() {
   'use strict';
   window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	
+	// make sure there's something there
+    
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
+	
     // Loop over them and prevent submission
     var validation = Array.prototype.filter.call(forms, function(form) {
       form.addEventListener('submit', function(event) {
@@ -174,4 +188,5 @@ include 'inc/footer.php';
     });
   }, false);
 })();
+
 </script>

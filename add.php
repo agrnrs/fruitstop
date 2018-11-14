@@ -66,7 +66,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="0,00" onblur="return convertComma()">
+			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="0.00" onblur="return convertComma()" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -79,7 +79,7 @@ if(empty($_POST['do'])){
 	</div>
 </form>
 
-<div>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
+<div>Types:<br>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
 </div>
 
 <?php 
@@ -118,7 +118,7 @@ include 'inc/footer.php';
 			event.preventDefault();
 			event.stopPropagation();
 		};
-		if (document.getElementById("price").value == ""){document.getElementById("price").value = 0;};
+		if (document.getElementById("price").value == ""){document.getElementById("price").value = "0";};
 	};
 	
 
