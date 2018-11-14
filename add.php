@@ -66,7 +66,7 @@ if(empty($_POST['do'])){
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="number" min="0" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" required>
+			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" pattern="/\d+[\,\.]{1}\d{1,2}/" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -90,23 +90,25 @@ include 'inc/footer.php';
 </body>
 
 <script>
-//plan: make this function convert point to comma upon leaving field
-//might work
-
+//this function converts point to comma upon leaving field
 	function convertComma() {
 		//alert("function time!");
 		//function triggers ok
-		var pricestr = document.getElementById('price');
-		console.log(pricestr);
-		alert("pricestr: " + pricestr);
-		if (pricestr.includes(".")){
-			alert("includes point!");
-			pricestr.replace(".", ",");
-			alert("yo: " + pricestr);
-			document.getElementById("price").value = pricestr;
-			alert("includes point!");
-			document.getElementById("feedbackmessage").value = "Use comma for decimal input";
-			return pricestr;
+		var pricestr = document.getElementById('price').value;
+		//console.log(pricestr);
+		//alert("pricestr: " + pricestr);
+		if (/\d+[\,\.]{1}\d{1,2}/.test(pricestr)){
+			if (pricestr.includes(".")){
+				//alert("includes point!");
+				pricestr.replace(",", ".");
+				//alert("yo: " + pricestr);
+				document.getElementById("price").value = pricestr;
+				//alert("includes point!");
+				//parseFloat(pricestr);
+				document.getElementById("feedbackmessage").value = "Use comma for decimal input";
+				//alert(pricestr);
+				return pricestr;
+			};
 		};
 	};
 	
