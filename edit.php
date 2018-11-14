@@ -35,7 +35,7 @@ if (empty($_POST['id'])){
 		$type = $_POST['type'];
 		$kgst = $_POST['kgstock'];
 		$pric = $_POST['price'];
-		$tell = "Updated product with id " . $id;
+		$tell = "Product information updated. Edited ". $prod ." with id " . $id;
 		include 'inc/updatespecific.php';
 		//this does sql stuf, gets data for id
 		// gets $type, $prod, and $idid currently
@@ -103,7 +103,7 @@ include 'inc/header.php'; // get header
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="number" min="0" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="<?php echo $pric; ?>" required>
+			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="<?php echo $pric; ?>" onblur="return convertComma()" required>
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -126,6 +126,33 @@ include 'inc/header.php'; // get header
 include 'inc/footer.php';
 ?>
 </body>
+
+<script>
+//this function converts point to comma upon leaving field
+	function convertComma() {
+		//alert("function time!");
+		//function triggers ok
+		var pricestr = document.getElementById('price').value;
+		//console.log(pricestr);
+		pricestr = pricestr.replace(/[^0-9.,]/g, '');
+		//alert("pricestr: " + pricestr);
+		if (/\d+[\,\.]{1}\d+/.test(pricestr)){
+			if (pricestr.includes(".")){
+				pricestr.replace(",", ".");
+			};
+			pricestr = parseFloat(pricestr);
+			document.getElementById("price").value = pricestr;
+			return pricestr;
+		} else {
+			//alert("invalid price");
+			document.getElementById("feedbackmessage").value = "Input numbers and comma only in price field";
+				document.getElementById("price").value = "";
+			event.preventDefault();
+			event.stopPropagation();
+		};
+	};
+	
+</script>
 
 <script>
 // stolen directly from bootstrap's own example

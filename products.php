@@ -47,10 +47,10 @@ for ($a=0; $a<$listsum; $a++){
 
 		$str = '
 		<tr>
-      <td>'.ucfirst($typelist[$a]).'</td>
-      <td>'.ucfirst($prodlist[$a]).'</td>
-      <td>'.ucfirst($kgstlist[$a]).'</td>
-      <td>'.ucfirst($priclist[$a]).'</td>
+      <td class="align-middle">'.ucfirst($typelist[$a]).'</td>
+      <td class="align-middle">'.ucfirst($prodlist[$a]).'</td>
+      <td class="align-middle">'.ucfirst($kgstlist[$a]).'</td>
+      <td class="align-middle">'.ucfirst($priclist[$a]).'</td>
 	  <td>
 	  <div class="form-check form-check-inline">
 		<form action="edit.php" method="post" style="float: left;">

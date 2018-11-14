@@ -62,11 +62,11 @@ if(empty($_POST['do'])){
 		<div class="invalid-feedback">
 			Please enter a valid stock amount
 		</div>
-	</div>
+	</div>	
 	<div class="form-group row">
 		<label for="type" class="col-sm-2 col-form-label">Price/kg</label>
 		<div class="col-sm-5">
-			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="" placeholder="0,00" onblur="return convertComma()" pattern="/\d+[\,\.]{1}\d{1,2}/" required>
+			<input type="text" class="form-control-sm" id="price" aria-describedby="inputGroupPrepend" name="price" value="0,00" onblur="return convertComma()">
 		</div>
 		<div class="invalid-feedback">
 			Please enter a valid product price
@@ -82,7 +82,6 @@ if(empty($_POST['do'])){
 <div>1 -- Fruit<br>2 -- Vegetable<br>3 -- Berry</div>
 </div>
 
-
 <?php 
 //end page here
 include 'inc/footer.php';
@@ -96,21 +95,33 @@ include 'inc/footer.php';
 		//function triggers ok
 		var pricestr = document.getElementById('price').value;
 		//console.log(pricestr);
+		pricestr = pricestr.replace(/[^0-9\.,]/g, '');
 		//alert("pricestr: " + pricestr);
-		if (/\d+[\,\.]{1}\d{1,2}/.test(pricestr)){
-			if (pricestr.includes(".")){
-				//alert("includes point!");
-				pricestr.replace(",", ".");
-				//alert("yo: " + pricestr);
-				document.getElementById("price").value = pricestr;
-				//alert("includes point!");
-				//parseFloat(pricestr);
-				document.getElementById("feedbackmessage").value = "Use comma for decimal input";
-				//alert(pricestr);
-				return pricestr;
+		if (/\d+[,\.]{1}\d+/.test(pricestr)){
+			
+			//used to replace symbols, works... ish
+			if (pricestr.includes(",")){
+				pricestr = pricestr.replace(",", ".");
 			};
+			
+			
+			pricestr = parseFloat(pricestr);
+			//alert(pricestr);
+			document.getElementById("price").value = pricestr;
+			return pricestr;
+		} else if (!pricestr) {
+			return "";
+		} else {
+			//alert("invalid price");
+			document.getElementById("feedbackmessage").value = "Input numbers and comma only in price field";
+				document.getElementById("price").value = "0";
+			event.preventDefault();
+			event.stopPropagation();
 		};
+		if (document.getElementById("price").value == ""){document.getElementById("price").value = 0;};
 	};
+	
+
 	
 </script>
 
@@ -120,7 +131,9 @@ include 'inc/footer.php';
   'use strict';
   window.addEventListener('load', function() {
 	
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	// make sure there's something there
+    
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.getElementsByClassName('needs-validation');
 	
     // Loop over them and prevent submission
